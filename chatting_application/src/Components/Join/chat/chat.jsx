@@ -10,7 +10,15 @@ import { Link } from 'react-router-dom';
 
 
 const ENDPOINT = "https://chat-server-dusky.vercel.app/";
-var socket = socketIO(ENDPOINT,{transports:['websocket']});
+var socket = socketIO(ENDPOINT,{
+    cors: {
+        origin: "https://chat-server-dusky.vercel.app/",
+        methods: ["GET", "POST"],
+        credentials: true,
+        transports: ['websocket', 'polling'],
+},
+allowEIO3: true
+});
 
 
 

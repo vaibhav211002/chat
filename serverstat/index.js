@@ -1,7 +1,7 @@
 const http = require('http');
 const express = require('express');
 const cors = require('cors');
-const socketio = require('socket.io');
+// const socketio = require('socket.io');
 const { log } = require('console');
 
 const app = express();
@@ -11,7 +11,7 @@ const users = {};
 
 app.use(cors());
 
-const io = socketio(server);
+const io = require('socket.io')(server, {pingTimeout: 60000});
 port = process.env.PORT ;
 
 io.on("connection",(socket)=>{
