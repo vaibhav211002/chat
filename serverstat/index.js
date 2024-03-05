@@ -1,8 +1,7 @@
 const http = require('http');
-const https = require('https');
 const express = require('express');
 const cors = require('cors');
-const socketIO = require('socket.io');
+const socketio = require('socket.io');
 const { log } = require('console');
 
 const app = express();
@@ -12,8 +11,8 @@ const users = {};
 
 app.use(cors());
 
-const io = socketIO(server);
-port = process.env.PORT;
+const io = socketio(server);
+port = process.env.PORT || 4500 ;
 
 io.on("connection",(socket)=>{
     console.log("new connection");
