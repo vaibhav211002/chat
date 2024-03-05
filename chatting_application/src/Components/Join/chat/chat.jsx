@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 
 
 
-const ENDPOINT = 'http://localhost:4500/';
-var socket ; 
+const ENDPOINT = 'https://chat-server-dusky.vercel.app/';
+// var socket ; 
 
 
 
@@ -29,7 +29,7 @@ const Chat = () => {
     }
 
     
- socket = socketIO(ENDPOINT,{transports:['websocket']});
+ var socket = socketIO(ENDPOINT,{transports:['websocket']});
 
 useEffect(()=>{
     socket.on('connect',()=>{
