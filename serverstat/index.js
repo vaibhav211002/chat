@@ -2,7 +2,7 @@ const http = require('http');
 const https = require('https');
 const express = require('express');
 const cors = require('cors');
-const {Server} = require('socket.io');
+const socketIO = require('socket.io');
 const { log } = require('console');
 
 const app = express();
@@ -12,7 +12,7 @@ const users = {};
 
 app.use(cors());
 
-const io = new Server(server);
+const io = socketIO(server);
 port = 4500 || process.env.PORT ;
 
 io.on("connection",(socket)=>{
