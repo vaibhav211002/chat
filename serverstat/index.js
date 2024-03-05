@@ -33,12 +33,12 @@ io.on("connection",(socket)=>{
     })
 
     socket.on('disconnect',()=>{
-        if(users[socket.id]){
+        // if(users[socket.id]){
             socket.broadcast.emit('leave' , {user:"Admin", message:`${users[socket.id]} has left`})
-        }
-        else{
-            delete users[socket.id];
-        }
+        // }
+        // else{
+        //     delete users[socket.id];
+        // }
         
         console.log(`${users[socket.id]} Left `);
     })

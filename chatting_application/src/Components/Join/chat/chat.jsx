@@ -7,18 +7,9 @@ import Messages from '../messages/Messages';
 import ScrollToBottom  from "react-scroll-to-bottom";
 import { Link } from 'react-router-dom';
 
-
+let socket;
 
 const ENDPOINT = "https://chat-server-dusky.vercel.app/";
-var socket = socketIO(ENDPOINT,{
-    cors: {
-        origin: "https://chat-server-dusky.vercel.app/",
-        methods: ["GET", "POST"],
-        credentials: true,
-        transports: ['websocket', 'polling'],
-},
-allowEIO3: true
-});
 
 
 
@@ -40,6 +31,8 @@ const Chat = () => {
  
 
 useEffect(()=>{
+    socket = socketIO(ENDPOINT,{transports:['websocket']});
+
     
     
     socket.on('connect',()=>{
@@ -90,7 +83,7 @@ useEffect(() => {
     socket.off();
 
   }
-}, [])
+}, [messages])
 
 
 
