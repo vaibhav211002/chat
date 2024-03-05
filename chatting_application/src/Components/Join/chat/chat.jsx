@@ -29,9 +29,10 @@ const Chat = () => {
     }
 
     
- var socket = socketIO(ENDPOINT,{transports:['websocket']});
 
 useEffect(()=>{
+    const socket = socketIO(ENDPOINT,{transports:['websocket']});
+
     socket.on('connect',()=>{
         // alert('connected');
         setid(socket.id);
