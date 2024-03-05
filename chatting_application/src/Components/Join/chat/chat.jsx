@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 let socket;
 
-const ENDPOINT = "https://chat-server-dusky.vercel.app";
+const ENDPOINT = "https://chat-server-dusky.vercel.app/";
 
 
 
