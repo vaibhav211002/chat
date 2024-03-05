@@ -14,7 +14,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
     "react-scroll-to-bottom": "^4.2.0",
-    "socket.io-client": "^4.7.4"
+    "socket.io": "^3.0.0-rc3",
+    "socket.io-client": "^3.0.0-rc3"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
