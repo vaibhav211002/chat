@@ -10,6 +10,9 @@ const server = http.createServer(app);
 const users = {};
 
 app.use(cors());
+app.get("/",(req,res)=>{
+    res.send("working node.js server")
+})
 
 const io = socketio(server);
 port = process.env.PORT ;
@@ -46,9 +49,7 @@ io.on("connection",(socket)=>{
 
 })
 
-app.get("/",(req,res)=>{
-    res.send("working node.js server")
-})
+
 
 server.listen(port,()=>{
     console.log("server is working");
