@@ -13,7 +13,7 @@ const users = {};
 app.use(cors());
 
 const io = socketIO(server);
-port = process.env.PORT  || 4500 ;
+port = process.env.PORT;
 
 io.on("connection",(socket)=>{
     console.log("new connection");

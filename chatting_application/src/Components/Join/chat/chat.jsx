@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const ENDPOINT = 'https://chat-server-dusky.vercel.app/';
-var socket = socketIO(ENDPOINT,{transports:['websocket']});
+const socket = socketIO(ENDPOINT,{transports:['websocket']});
 
 
 
