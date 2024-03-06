@@ -1,102 +1,58 @@
-.chatPage{
+.chatPage {
     background-color: #000000;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid green; */
-    
 }
 
-.chatContainer{
+.chatContainer {
     background-color: white;
     height: 60%;
     width: 50%;
-    
-    /* border: 2px solid red; */
-    
-    
-}
-@media (max-width: 500px) {
-    .footer {
-        font-size: 10px; /* Adjusted font size for smaller screens */
-    }
-    .chatContainer {
-        height: 100vh;
-        width: 100vw
-    }
-    .inputBox{
-        font-size: 60px;
-        height: 10x;
-    }
-    #chatInput{
-        height: 1%;
-        padding-top: 100px;
-    }
-    .chatBox{
-        height: 10px;
-        /* border: 2px solid red; */
-    }
-    .headname{
-        font-size: 7;
-        color: white;
-        /* margin: 2.5%; */
-        /* border: 2px solid green; */
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures footer is at the bottom */
 }
 
-
-
-.header{
+.header {
     background-color: rgb(0, 0, 0);
     height: 15%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.header>h2{
+.header>h2 {
     font-size: 3vmax;
     color: white;
     margin: 2.5vmax;
-    
 }
 
-.header img{
-    
+.header img {
     margin: 2.5vmax;
     transition: all 0.3s;
     cursor: pointer;
 }
-.header>img:hover{
+
+.header>img:hover {
     transform: scale(1.2);
 }
 
-
-.chatBox{
-
- height: 80%;
- box-sizing: border-box;
- 
- /* width: 200%; */
- 
+.chatBox {
+    height: 80%;
+    box-sizing: border-box;
 }
 
-.inputBox{
-    
+.inputBox {
     height: 8%;
     box-sizing: border-box;
     display: flex;
-   border: 2px black solid;
-   /* padding-bottom: 5px; */
-
-    
+    border: 2px black solid;
 }
 
-#chatInput{
-   
+#chatInput {
     width: 80%;
     border: none;
     padding: 2vmax;
@@ -106,55 +62,72 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2vmax;
     border-top: 0.2vmax solid rgba(0, 0, 0, 0.562);
-    
 }
 
-
-.sendBtn{
+.sendBtn {
     background-color: rgb(5, 242, 108);
     color: rgb(0, 0, 0);
-    border: 1px solid black;
+    border: 1px solid orange;
+    height: 65px;
     width: 30%;
     transition: all 0.3s;
     cursor: pointer;
-    
+    font-size: 20px;
 }
 
-.sendBtn>img{
+.sendBtn>img {
     width: 2.6vmax;
-    filter:brightness(100) invert();
+    filter: brightness(100) invert();
     transition: all 0.3s;
 }
-/* .sendBtn::after{
-    background-color: rgb(200, 41, 41);
-    color: azure;
-}  */
-.sendBtn:hover img{
+
+.sendBtn:hover img {
     transform: translateX(10px);
 }
 
-
-.headname{
+.headname {
     font-size: 15px;
     color: white;
     margin: 2.5vmax;
 }
 
-.btnclose{
-    color: black;
-    border-radius: 100%;
-}
-
 .footer {
-    color: rgb(23, 29, 34);
-    /* border: 2px solid red */
-    position: absolute;
-    margin-top: 700px;
-    width: 400px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgb(216, 225, 232);
     text-align: center;
-    padding-bottom: 15px;
+    padding: 15px;
+    /* border: 2px solid blue; */
+    width: 100%; /* Adjusted to fit the container width */
 }
 
-/* Media query for smaller screens */
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .chatContainer {
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column; /* Stack elements vertically */
+    }
 
+    .footer {
+        font-size: 10px;
+        position: static; /* Adjusted for better positioning in the flow */
+        width: 100%; /* Ensure it spans the width of its container */
+        margin-top: 10px; /* A little space above the footer */
+    }
 
+    .inputBox {
+        font-size: 60px; /* This seems too large, adjusting for demonstration */
+        height: auto; /* Adjusted for better fit */
+        font-size: 14px; /* More appropriate size */
+    }
+
+    .sendBtn {
+        height: 45px; /* Adjusted for smaller screens */
+    }
+
+    #chatInput, .chatBox, .headname {
+        /* Adjust properties as needed for smaller screens */
+        font-size: 14px; /* Adjust font size for readability */
+    }
+}

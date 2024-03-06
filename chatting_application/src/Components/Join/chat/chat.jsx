@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 let socket;
 
-const ENDPOINT = "https://chat-1sever.onrender.com/";
+const ENDPOINT = "http://localhost:4500/";
 
 
 
@@ -89,7 +89,8 @@ useEffect(() => {
 
 
   return (
-    <div className='chatPage'>
+    <div className='conatiner'>
+        <div className='chatPage'>
         <div className='chatContainer'>
             <div className='header'>
                 <h2>Chat-ting</h2>
@@ -101,13 +102,16 @@ useEffect(() => {
             </ScrollToBottom >
             <div className='inputBox'>
                 <input onKeyDown={(event)=> event.key === 'Enter' ? send() : null} type='text' id='chatInput' />
-                <button onClick={send} className='sendBtn'>send</button>
+                <button onClick={send} className='sendBtn'>Send</button>
             </div>
 
         </div>
-        <div className='footer'>This website is in Development Phase . Stay tuned for updates.For any suggestion Mail: <a href='vaibhavbhatt9666@gmail.com'>vaibhavbhatt9666@gmail.com</a></div>
 
     </div>
+    <div className='footer'>This website is in Development Phase . Stay tuned for updates.For any suggestion Mail: <a href='vaibhavbhatt9666@gmail.com'>vaibhavbhatt9666@gmail.com</a></div>
+
+    </div>
+    
   )
 }
 
