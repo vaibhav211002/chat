@@ -57,12 +57,25 @@
 }
 
 .footer {
-
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgb(216, 225, 232);
+    text-align: center;
+    padding: 15px;
+    /* border: 2px solid blue; */
+    width: 100%; /* Adjusted to fit the container width */
 }
 
 /* Media query for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
+
+
     .footer {
-        font-size: 8px; /* Adjusted font size for smaller screens */
+        font-size: 10px;
+        position: static; /* Adjusted for better positioning in the flow */
+        width: 100%; /* Ensure it spans the width of its container */
+        margin-top: 10px; /* A little space above the footer */
     }
+
+
 }
