@@ -15,7 +15,7 @@ app.get("/",(req,res)=>{
 })
 
 const io = socketio(server);
-port = process.env.PORT ;
+port = process.env.PORT || 4500;
 
 io.on("connection",(socket)=>{
     console.log("new connection");
@@ -25,7 +25,7 @@ io.on("connection",(socket)=>{
         console.log(users);
         console.log(`${user} has joined`);
         socket.broadcast.emit('userjoined',{user:"Admin",message:` ${users[socket.id]} has joined`});
-        socket.emit('Welcome',{user:"Admin : ",message:"Welcome To The Chat "})
+        socket.emit('Welcome',{user:"Admin : ",message:`Welcome To The Chat ${users[socket.id]}` })
 
     })
 
@@ -36,12 +36,12 @@ io.on("connection",(socket)=>{
     })
 
     socket.on('disconnect',()=>{
-        // if(users[socket.id]){
+        if(users[socket.id]){
             socket.broadcast.emit('leave' , {user:"Admin", message:`${users[socket.id]} has left`})
-        // }
-        // else{
-        //     delete users[socket.id];
-        // }
+        }
+        else{
+            delete users[socket.id];
+        }
         
         console.log(`${users[socket.id]} Left `);
     })

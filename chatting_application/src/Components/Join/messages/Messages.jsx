@@ -13,7 +13,7 @@ const Messages = ({user , message, cls}) => {
     }
     return(
             <div className={`messageBox ${cls}`}>
-            {`${message} : You`}
+            {` You : ${message}`}
         </div>
         )
 

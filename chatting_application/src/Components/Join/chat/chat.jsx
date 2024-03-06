@@ -83,7 +83,7 @@ useEffect(() => {
     socket.off();
 
   }
-}, [messages])
+}, [])
 
 
 
