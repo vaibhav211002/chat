@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 let socket;
 
-const ENDPOINT = "https://chat-1sever.onrender.com/";
+const ENDPOINT = "http://localhost:4500/";
 
 
 
