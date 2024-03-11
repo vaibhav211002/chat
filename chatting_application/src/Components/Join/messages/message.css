@@ -8,6 +8,13 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.hell{
+    background-color: rgb(239, 129, 74);
+    color: rgb(0, 0, 0);
+    float: left;
+
+}
+
 @media (max-width: 500px) {
     .messageBox{
         font-size: 2vmax;
@@ -25,6 +32,6 @@
 .left{
     float: left;
     text-align: left;
-    background-color: rgb(237, 147, 92);
+    background-color: rgb(28, 212, 236);
     
 }

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "error-logger-client": "^1.0.4",
+    "mongoose": "^8.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",

@@ -6,19 +6,46 @@ import "./chat.css";
 import Messages from '../messages/Messages';
 import ScrollToBottom  from "react-scroll-to-bottom";
 import { Link } from 'react-router-dom';
+import Usercord from '../userrecord/Usercord';
+
 
 let socket;
 
-const ENDPOINT = "https://chat-1sever.onrender.com/";
+const ENDPOINT = "https://chat-1sever.onrender.com";
 
 
+const test = (user)=>{
+    const userdet = {user};
+    if ( typeof userdet.user === 'undefined' ) {
+        window.location.href = '/';
+        
+    }
+}
 
 
 const Chat = () => {
 
+    test(user);
+
+
+
+    // console.log('userdetais',userdet.user);
+
+    // if(user)
+
     const [id, setid] = useState('');
     const [messages, setMessages] = useState([]);
     const [endmsg, setendmsg] = useState([]);
+    const [ndata,setdata] = useState([]);
+    const fetchdata = () =>{
+    fetch('https://chat-1sever.onrender.com/users')
+    .then(response =>response.json())
+    .then(data=>{
+        setdata(data)
+    })
+}
+    
+
 
     const send = ()=>{
         const message = document.getElementById('chatInput').value ;
@@ -27,11 +54,15 @@ const Chat = () => {
         
     }
 
-    
- 
+    const back = ()=>{
+        socket.emit('back');
+
+    }
+
 
 useEffect(()=>{
     socket = socketIO(ENDPOINT,{transports:['websocket']});
+    
 
     
     
@@ -39,6 +70,7 @@ useEffect(()=>{
         // alert('connected');
         setid(socket.id);
         console.log('we are at the client side');
+
     })
 
     socket.emit('joined',{user});
@@ -46,26 +78,38 @@ useEffect(()=>{
     socket.on('Welcome',(data)=>{
         setMessages(currentMessages => [...currentMessages, data]);
         console.log(data.user , data.message);
+        fetchdata();
+
     })
 
     socket.on('userjoined',(data)=>{
         setMessages(currentMessages => [...currentMessages, data]);
         console.log(data.user,data.message);
+        fetchdata();
+
+
+
     })
-
-
     socket.on('leave',(data)=>{
+
     setMessages(messages => ([...messages,data]));
         console.log(data.user,data.message);
+        fetchdata();
     })
+
+
     console.log(messages);
 
 
 
     return ()=>{
 
-        socket.emit('disconnect');
+
+        socket.emit('disconnected');
         socket.off();
+        
+        
+        
 
     }
 },[])
@@ -76,14 +120,14 @@ useEffect(() => {
         console.log(data);
         setMessages(currentMessages => [...currentMessages, data]);
         console.log(data.user,data.message,data.id);
+        
 
     })
-
   return () => {
     socket.off();
-
   }
 }, [])
+
 
 
 
@@ -94,7 +138,7 @@ useEffect(() => {
         <div className='chatContainer'>
             <div className='header'>
                 <h2>Chat-ting</h2>
-                <a href='/'><button className='btnclose' type="button">X</button></a>
+                <a href='/'><button className='btnclose' onClick={back} type="button">X</button></a>
                 <span className='headname'>Hello , {user}</span>
             </div>
             <ScrollToBottom  className='chatBox'>
@@ -107,6 +151,9 @@ useEffect(() => {
 
         </div>
 
+    </div>
+    <div>
+        <Usercord data={ndata}/>
     </div>
     <div className='footer'>This website is in Development Phase . Stay tuned for updates.For any suggestion Mail: <a href='vaibhavbhatt9666@gmail.com'>vaibhavbhatt9666@gmail.com</a></div>
 
