@@ -14,7 +14,7 @@ export const Joined = () => {
   const [data, setdata] = useState("0")
 
   const fetchdata = () =>{
-    fetch('https://chat-1sever.onrender.com/userscount')
+    fetch('http://localhost:3000/userscount')
     .then(response =>response.json())
     .then(data=>{
         setdata(data.count)

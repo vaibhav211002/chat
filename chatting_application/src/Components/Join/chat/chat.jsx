@@ -11,7 +11,7 @@ import Usercord from '../userrecord/Usercord';
 
 let socket;
 
-const ENDPOINT = "https://chat-1sever.onrender.com";
+const ENDPOINT = "http://localhost:3000/";
 
 
 const test = (user)=>{
@@ -31,7 +31,7 @@ const Chat = () => {
     const [endmsg, setendmsg] = useState([]);
     const [ndata,setdata] = useState([]);
     const fetchdata = () =>{
-    fetch('https://chat-1sever.onrender.com/users')
+    fetch('http://localhost:3000/users')
     .then(response =>response.json())
     .then(data=>{
         setdata(data)
