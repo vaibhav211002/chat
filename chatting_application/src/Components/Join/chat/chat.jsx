@@ -26,13 +26,6 @@ const test = (user)=>{
 const Chat = () => {
 
     test(user);
-
-
-
-    // console.log('userdetais',userdet.user);
-
-    // if(user)
-
     const [id, setid] = useState('');
     const [messages, setMessages] = useState([]);
     const [endmsg, setendmsg] = useState([]);
@@ -63,28 +56,21 @@ const Chat = () => {
 useEffect(()=>{
     socket = socketIO(ENDPOINT,{transports:['websocket']});
     
-
-    
-    
     socket.on('connect',()=>{
         // alert('connected');
         setid(socket.id);
-        console.log('we are at the client side');
-
     })
 
     socket.emit('joined',{user});
 
     socket.on('Welcome',(data)=>{
         setMessages(currentMessages => [...currentMessages, data]);
-        console.log(data.user , data.message);
         fetchdata();
 
     })
 
     socket.on('userjoined',(data)=>{
         setMessages(currentMessages => [...currentMessages, data]);
-        console.log(data.user,data.message);
         fetchdata();
 
 
@@ -93,7 +79,6 @@ useEffect(()=>{
     socket.on('leave',(data)=>{
 
     setMessages(messages => ([...messages,data]));
-        console.log(data.user,data.message);
         fetchdata();
     })
 
@@ -127,10 +112,6 @@ useEffect(() => {
     socket.off();
   }
 }, [])
-
-
-
-
 
   return (
     <div className='conatiner'>

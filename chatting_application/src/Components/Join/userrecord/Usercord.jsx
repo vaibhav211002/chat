@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './usercord.css'
 
-
-
-
 const Usercord = ({data}) => {
     
   return (

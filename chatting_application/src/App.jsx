@@ -9,13 +9,6 @@ import Chat from './Components/Join/chat/chat';
 
 function App() {
 
-  // socket.on("connect",()=>{
-  //   console.log('we are in the client');
-
-  // })
-
-
-  
   return (
     <div>
       <Router>

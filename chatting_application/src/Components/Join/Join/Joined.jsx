@@ -3,8 +3,6 @@ import "./Join.css"
 import { Link} from 'react-router-dom'
 
 let user;
-
-
 export const Joined = () => {
 
   const senduser = () =>{
@@ -20,9 +18,7 @@ export const Joined = () => {
     .then(response =>response.json())
     .then(data=>{
         setdata(data.count)
-        console.log(data);
     })}
-
 
   const handlechange = (e)=>{
     setname(e.target.value);
@@ -30,10 +26,6 @@ export const Joined = () => {
   useEffect(() => {
     fetchdata();
 }, []);
-
-
-
-  console.log(name);
 
   return (
     <div>
