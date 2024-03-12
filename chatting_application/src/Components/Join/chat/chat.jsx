@@ -57,7 +57,6 @@ useEffect(()=>{
     socket = socketIO(ENDPOINT,{transports:['websocket']});
     
     socket.on('connect',()=>{
-        // alert('connected');
         setid(socket.id);
     })
 
@@ -83,9 +82,6 @@ useEffect(()=>{
     })
 
 
-    console.log(messages);
-
-
 
     return ()=>{
 
@@ -102,10 +98,7 @@ useEffect(()=>{
 useEffect(() => {
 
     socket.on('sendmessage',(data)=>{
-        console.log(data);
         setMessages(currentMessages => [...currentMessages, data]);
-        console.log(data.user,data.message,data.id);
-        
 
     })
   return () => {
