@@ -41,7 +41,7 @@ export const Joined = () => {
       
     </div>
 
-            <div className='footer'>This website is in Development Phase.Stay tuned for updates.<p>For any suggestion Mail: <a href='vaibhavbhatt9666@gmail.com'>vaibhavbhatt9666@gmail.com</a></p></div>
+            <div className='footer'>This website is in Development Phase.Stay tuned for updates.<p>For any suggestion Mail:</p></div>
 
     </div>
 
