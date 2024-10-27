@@ -129,7 +129,7 @@ useEffect(() => {
     <div>
         <Usercord data={ndata}/>
     </div>
-    <div className='footer'>This website is in Development Phase . Stay tuned for updates.For any suggestion Mail: <a href='vaibhavbhatt9666@gmail.com'>vaibhavbhatt9666@gmail.com</a></div>
+    <div className='footer'>This website is in Development Phase . Stay tuned for updates.For any suggestion Mail:</div>
 
     </div>
     
